@@ -11,11 +11,8 @@ public class Player {
 	
 	private ArrayList<Boolean> playerInventory;	
 	private int treasuresCollected;
-	private int enemyiesKilled;
+	private int enemiesKilled;
 	
-	public static final int KEY = 0;
-	public static final int SWORD = 1;
-	public static final int ICE_POWER = 2;
 	public static final int NUM_INVENTORY_ITEMS = 3; 
 
 	public Player(String playerName, String playerAvatar){
@@ -67,44 +64,33 @@ public class Player {
 		playerInventory.set(itemIndex, obtained);
 	}
 	
-	
-	
-	private Point position;
-	
-	public Player(Point start) {
-		this.position = start;
-		
-		
-	}
-
-	
-	public Point getPosition() {
-		return position;
+	public int getTreasuresCollected() {
+		return treasuresCollected;
 	}
 	
-	public void setPosition(Point position) {
-		this.position= position;
+	public void incrementTreasuresFound() {
+		this.treasuresCollected++;
 	}
 	
-	public void move(int dx, int dy, Maze maze) {
-		Point next = new Point(position.x + dx, position.y + dy);
-		
-		try {
-			if(maze.isWall(next.y, next.x)) {
-			javax.swing.JOptionPane.showMessageDialog(null, "hit Wall");
-		}else {
-			this.position = next;
+	public int getEnemiesKilled() {
+		return enemiesKilled;
+	}
+	
+	public void addEnemiesKilled() {
+		this.enemiesKilled++;
+	}
+	
+	public void resetPlayer() {
+		currentCell = null;
+		playerEliminated = false;
+		resetInventory();
+		treasuresCollected = 0;
+		enemiesKilled = 0;
+	}
+	
+	public void resetInventory() {
+		for (int i = 0; i < NUM_INVENTORY_ITEMS; i++) {
+			playerInventory.set(i, false);
 		}
-			
-		}catch(IndexOutOfBoundsException a) {
-			javax.swing.JOptionPane.showMessageDialog(null,"out of bound");
-		
-		}
-		
 	}
-
-
-	
-
-	
 }
