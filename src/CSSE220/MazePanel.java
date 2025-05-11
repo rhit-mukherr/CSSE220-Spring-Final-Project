@@ -42,9 +42,8 @@ public class MazePanel extends JPanel{
             }
         }
 		
-		int col = player.getCol();
-		int row = player.getRow();
-		g.fillOval(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+		int col = player.getCurrentCell().getCol();
+		int row = player.getCurrentCell().getRow();
 		
 	}
 
