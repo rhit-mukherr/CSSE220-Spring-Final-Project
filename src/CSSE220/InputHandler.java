@@ -16,7 +16,7 @@ public class InputHandler implements KeyListener {
 	public InputHandler(Maze maze, Player player) {
 		this.maze = maze;
 		this.player = player;
-	}
+	}123
 
 
 	@Override
