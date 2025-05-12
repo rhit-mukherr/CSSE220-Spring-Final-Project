@@ -4,7 +4,7 @@ public class Maze {
 
 	private Cell[][] matrix;
 	
-	public Maze(int rows, int cols) {
+	public Maze(int rows, int cols, Player player) {
 		matrix = new Cell[rows][cols];
 		for(int r= 0; r<rows; r++) {
 			for(int c =0 ;c<cols;c++) {
@@ -12,7 +12,7 @@ public class Maze {
 			}
 		}
 	}
-	
+
 	public int getRows() {
 		return matrix.length;
 	}

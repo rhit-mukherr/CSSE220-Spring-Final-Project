@@ -10,13 +10,14 @@ import javax.sound.sampled.Clip;
 
 public class InputHandler implements KeyListener {
 
-	private Maze maze;
+	/*private Maze maze;
 	private Player player;
 
 	public InputHandler(Maze maze, Player player) {
 		this.maze = maze;
 		this.player = player;
 	}
+
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -51,34 +52,9 @@ public class InputHandler implements KeyListener {
 			}
 	}
 	
-	private boolean isValidMove(int row, int col) {
-		return row >= && row < maze.getRows() &&
-				col >= 0 && col < maze.getCols() &&
-	               !maze.isWall(row, col);
-	    }
 	
-	private void movePlayer(int newRow, int newCol) {
-        try {
-            Cell nextCell = maze.getCell(newRow, newCol);
-            player.setCurrentCell(nextCell);
-            playMoveSound();
-        } catch (Exception ex) {
-            System.err.println("Error moving player: " + ex.getMessage());
-        }
-	
-    private void playMoveSound() {
-    	try {
-    		
-    	}
     }
 
-			// ensuring in bounds
-			if (newRow >= 0 && newRow < maze.getRows() 
-					&& newCol >= 0 && newCol < maze.getCols()
-					&& !maze.isWall(newRow, newCol)) {
-
-				Cell nextCell = maze.getCell(newRow, newCol);
-				player.setCurrentCell(nextCell);
 
 				// play sound 
 				try {
@@ -91,7 +67,7 @@ public class InputHandler implements KeyListener {
 					ex.printStackTrace();
 				}
 			}
-		}
+		}*/
 	
 	@Override
 	public void keyReleased(KeyEvent e) {
