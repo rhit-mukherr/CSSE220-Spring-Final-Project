@@ -10,19 +10,10 @@ public class MazeGenerator {
 	
 	}
 	
+}
+
+
 	
-//	public Maze generate(int rows, int cols) {
-//		Maze maze = new Maze(rows, cols);
-//		
-//		for(int r =0;r<rows; r++) {
-//			for(int c = 0; c<cols; c++) {
-//				maze.setWall(r, c, true);
-//			}
-//			
-//		}
-
-	}
-
 	
 	
 
