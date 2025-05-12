@@ -4,9 +4,13 @@ public class Cell {
 
 	
 	private boolean wall;
+	private int row;
+	private int col;
 	
 	public Cell(boolean wall) {
 		this.wall = wall;
+		this.row = row;
+		this.col = col;
 		
 	}
 	
@@ -16,5 +20,13 @@ public class Cell {
 	
 	public void setWall(boolean wall)	{
 		this.wall = wall;
+	}
+	
+	public int getRow() {
+		return row;
+	}
+	
+	public int getCol() {
+		return col;
 	}
 }

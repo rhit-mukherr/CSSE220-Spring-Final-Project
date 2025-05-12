@@ -1,5 +1,6 @@
 package CSSE220;
 
+
 public class MazeGenerator {
 	
 	private final int branch;
@@ -14,6 +15,3 @@ public class MazeGenerator {
 
 
 	
-	
-	
-

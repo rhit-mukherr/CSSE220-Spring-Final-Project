@@ -24,10 +24,6 @@ public class MazePanel extends JPanel{
 		setPreferredSize(new Dimension(width, height));
 	}
 	
-	
-	
-
-
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -46,9 +42,8 @@ public class MazePanel extends JPanel{
             }
         }
 		
-		g.setColor(Color.red);
-		Point pos = player.getPosition();
-		g.fillOval(pos.x  * CELL_SIZE,pos.y * CELL_SIZE , CELL_SIZE, CELL_SIZE);
+		int col = player.getCurrentCell().getCol();
+		int row = player.getCurrentCell().getRow();
 		
 	}
 
