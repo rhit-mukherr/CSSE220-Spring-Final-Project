@@ -21,6 +21,23 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 	private Maze maze;
 	private Player player;
 	private InputHandler inputHandler;
+		
+    
+    private int difficulty;	
+    private int score;	
+    private int level;	
+    private boolean finishedLevel;	
+    
+    private volatile boolean inGame;	
+    private volatile boolean isGameOver;	
+    				
+    private static final int START_LEVEL_WIDTH = 17;
+    private static final int START_LEVEL_HEIGHT = 17;
+    private static final int POINTS_ENEMY_KILLED = 10;
+    public static final int MAX_LEVEL = 10;
+    public static final int EASY = -1;
+    public static final int MEDIUM = 0;
+    public static final int HARD = 1;  
 	
 	GameMain(){
 		setTitle("Maze Escape");
@@ -74,5 +91,13 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
-
+	
+	public void setDifficulty(int difficulty) {
+		// TODO Auto-generated method stub
+		this.difficulty = difficulty;
+	}
+	public Player getPlayer() {
+		// TODO Auto-generated method stub
+		return this.player;
+	}
 }

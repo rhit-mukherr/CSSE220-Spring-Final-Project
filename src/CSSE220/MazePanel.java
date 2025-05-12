@@ -9,6 +9,10 @@ import javax.swing.JPanel;
 
 public class MazePanel extends JPanel{
 	
+	public static final String JackSprite = "jack";
+	public static final String WalleSprite = "wall-e";
+	public static final String DavidSprite = "david";
+	
 	private Maze maze;
 	private static final int CELL_SIZE = 32;
 	private Player player;

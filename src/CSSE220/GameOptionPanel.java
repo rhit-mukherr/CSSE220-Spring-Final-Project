@@ -22,9 +22,9 @@ import javax.swing.JTextField;
 public class GameOptionPanel extends JPanel {
 private static final long serialVersionUID = 1L;
 	
-	private JButton character1;	
-	private JButton character2;
-	private JButton character3;
+	private JButton setJack;	
+	private JButton setWalle;
+	private JButton setDavid;
 	private JTextField nameField;	
 	
 	private JRadioButton easyDifficulty;	
@@ -36,19 +36,19 @@ private static final long serialVersionUID = 1L;
 		this.setLayout(new GridBagLayout());		
 		GridBagConstraints gbc = new GridBagConstraints();
 		
-		Sprite sonyPanel = new Sprite(MazePanel.character1, 48, 48);
-		Sprite williamPanel = new Sprite(MazePanel.character2, 48, 48);
-		Sprite jackFrostPanel = new Sprite(MazePanel.character3, 48, 48);
+		Sprite knightPanel = new Sprite(MazePanel.JackSprite, 48, 48);
+		Sprite wallePanel = new Sprite(MazePanel.WalleSprite, 48, 48);
+		Sprite davidPanel = new Sprite(MazePanel.DavidSprite, 48, 48);
 		
-		character1 = new JButton("Sony - The char 1", character1Panel.getSprite() );
-		character2 = new JButton("William - The char 2", character2.getSprite());
-		character3 = new JButton("JackFrost - The char 3", character3.getSprite());
+		setJack = new JButton("Jack - The Knight", knightPanel.getSprite() );
+		setWalle = new JButton("Wall-E - The Robot", wallePanel.getSprite());
+		setDavid = new JButton("David - The Robot2", davidPanel.getSprite());
 		
-		character1.addActionListener(new ActionListener() {
+		setJack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				game.getPlayer().setPlayerAvatar(MazeFrame.Sprite);
+				game.getPlayer().setPlayerAvatar(MazePanel.JackSprite);
 				try {
-					URL url = new URL("");
+					URL url = new URL("/CSSE220Project/src/CSSE220/sprite/character 1 by GPT.png");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -59,11 +59,11 @@ private static final long serialVersionUID = 1L;
 			}
 		});
 		
-		character2.addActionListener(new ActionListener() {
+		setWalle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				game.getPlayer().setPlayerAvatar(MazeFrame.Sprite);
+				game.getPlayer().setPlayerAvatar(MazePanel.WalleSprite);
 				try {
-					URL url = new URL("");
+					URL url = new URL("/CSSE220Project/src/CSSE220/sprite/character 2 by GPT.png");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -74,11 +74,11 @@ private static final long serialVersionUID = 1L;
 			}
 		});
 		
-		character3.addActionListener(new ActionListener() {
+		setDavid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				game.getPlayer().setCharacter(MazeFrame.Sprite);
+				game.getPlayer().setPlayerAvatar(MazePanel.DavidSprite);
 				try {
-					URL url = new URL("");
+					URL url = new URL("/CSSE220Project/src/CSSE220/sprite/character 3 by GPT.png");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -89,9 +89,9 @@ private static final long serialVersionUID = 1L;
 			}
 		});;
 		
-		this.add(character1);	
-		this.add(character2);
-		this.add(character3);
+		this.add(setJack);	
+		this.add(setWalle);
+		this.add(setDavid);
 		
 		nameField = new JTextField("Enter Name");
 		nameField.setPreferredSize(new Dimension(200,20));
