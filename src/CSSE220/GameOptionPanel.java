@@ -38,17 +38,17 @@ private static final long serialVersionUID = 1L;
 		
 		Sprite sonyPanel = new Sprite(MazePanel.character1, 48, 48);
 		Sprite williamPanel = new Sprite(MazePanel.character2, 48, 48);
-		Sprite jackFrostPanel = new Sprite(MazePanel.JackFrostSprite, 48, 48);
+		Sprite jackFrostPanel = new Sprite(MazePanel.character3, 48, 48);
 		
-		character1 = new JButton("Sony - The Legend", sonyPanel.getSprite() );
-		character2 = new JButton("William - The Knight", williamPanel.getSprite());
-		character3 = new JButton("JackFrost - The Dark Prince", jackFrostPanel.getSprite());
+		character1 = new JButton("Sony - The char 1", character1Panel.getSprite() );
+		character2 = new JButton("William - The char 2", character2.getSprite());
+		character3 = new JButton("JackFrost - The char 3", character3.getSprite());
 		
 		character1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				game.getPlayer().setCharacter(MazeFrame.SonySprite);
+				game.getPlayer().setPlayerAvatar(MazeFrame.Sprite);
 				try {
-					URL url = new URL("file:H:\\Shamshad\\Maze\\MazeRunner\\src\\sounds\\button.wav");
+					URL url = new URL("");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -61,9 +61,9 @@ private static final long serialVersionUID = 1L;
 		
 		character2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				game.getPlayer().setCharacter(MazeFrame.WilliamSprite);
+				game.getPlayer().setPlayerAvatar(MazeFrame.Sprite);
 				try {
-					URL url = new URL("file:H:\\Shamshad\\Maze\\MazeRunner\\src\\sounds\\button.wav");
+					URL url = new URL("");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -76,9 +76,9 @@ private static final long serialVersionUID = 1L;
 		
 		character3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				game.getPlayer().setCharacter(MazeFrame.JackFrostSprite);
+				game.getPlayer().setCharacter(MazeFrame.Sprite);
 				try {
-					URL url = new URL("file:H:\\Shamshad\\Maze\\MazeRunner\\src\\sounds\\button.wav");
+					URL url = new URL("");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -100,7 +100,7 @@ private static final long serialVersionUID = 1L;
 		gbc.gridx = 0;
 		gbc.insets = new Insets(20,20,0,0);
 		
-		JLabel nameText = new JLabel("Introduce yourself, Champion: ");
+		JLabel nameText = new JLabel("Player Name");
 		this.add(nameText, gbc);
 		
 		gbc.gridx = 1;
@@ -134,7 +134,7 @@ private static final long serialVersionUID = 1L;
 			public void actionPerformed(ActionEvent event) {
 				game.setDifficulty(GameMain.EASY);
 				try {
-					URL url = new URL("file:H:\\Shamshad\\Maze\\MazeRunner\\src\\sounds\\button.wav");
+					URL url = new URL("");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -149,7 +149,7 @@ private static final long serialVersionUID = 1L;
 			public void actionPerformed(ActionEvent event) {
 				game.setDifficulty(GameMain.MEDIUM);
 				try {
-					URL url = new URL("file:H:\\Shamshad\\Maze\\MazeRunner\\src\\sounds\\button.wav");
+					URL url = new URL("");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);
@@ -164,7 +164,7 @@ private static final long serialVersionUID = 1L;
 			public void actionPerformed(ActionEvent event) {
 				game.setDifficulty(GameMain.HARD);
 				try {
-					URL url = new URL("file:H:\\Shamshad\\Maze\\MazeRunner\\src\\sounds\\button.wav");
+					URL url = new URL("");
 					Clip clip = AudioSystem.getClip();
 					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 					clip.open(ais);

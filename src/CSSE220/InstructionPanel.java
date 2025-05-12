@@ -64,6 +64,7 @@ public class InstructionPanel {
 	    } catch (IOException e){
 	    	System.err.println("Failed to read sprite.");
 	    }
+	}
 	    //JLabel sprite1 = new JLabel(new Sprite(MazePanel.Sprite,48,48).getSprite());
 	
 		//JLabel keyboard = new JLabel(new ImageIcon(wasd));
