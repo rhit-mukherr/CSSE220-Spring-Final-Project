@@ -18,6 +18,7 @@ public class InputHandler implements KeyListener {
 		this.player = player;
 	}
 
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int dx = 0;

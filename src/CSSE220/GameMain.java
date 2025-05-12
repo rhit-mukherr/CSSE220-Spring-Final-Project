@@ -44,7 +44,6 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
-		
 		maze = new Maze(20,20);
 		player = new Player(new Point(0,0));
 
