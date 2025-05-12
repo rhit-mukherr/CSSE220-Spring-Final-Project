@@ -1,4 +1,4 @@
-package CSSE220;
+	package CSSE220;
 
 public class Maze {
 
