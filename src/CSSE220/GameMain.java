@@ -32,7 +32,7 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 		player = new Player(new Point(0,0));
 
 		mazePanel = new MazePanel(maze, player);
-		inputHandler = new InputHandler(player, maze);
+		inputHandler = new InputHandler(maze, player);
 		
 		mazePanel.setFocusable(true);
 		mazePanel.addKeyListener(inputHandler);
