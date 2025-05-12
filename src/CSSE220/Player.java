@@ -15,9 +15,9 @@ public class Player {
 	
 	public static final int NUM_INVENTORY_ITEMS = 3; 
 
-	public Player(String playerName, String playerAvatar){
-		this.playerName = playerName;
-		this.playerAvatar = playerAvatar;
+	public Player(Point startPoisition){
+		this.playerName = "Player";
+		this.playerAvatar = "";
 		playerInventory = new ArrayList<Boolean>();
 		for (int i = 0; i < NUM_INVENTORY_ITEMS; i++) {
 			playerInventory.add(false);	

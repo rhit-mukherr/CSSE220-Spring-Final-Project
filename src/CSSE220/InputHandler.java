@@ -37,7 +37,7 @@ public class InputHandler implements KeyListener {
 			dy = -1;
 			break;
 		case KeyEvent.VK_DOWN:
-			dy = -1;
+			dy = 1;
 			break;
 		default:
 			return;
@@ -45,6 +45,32 @@ public class InputHandler implements KeyListener {
 
 			int newCol = currentCol + dx;
 			int newRow = currentRow + dy;
+			
+			if(isValidMove(newRow, newCol)) {
+				movePlayer(newRow, newCol);
+			}
+	}
+	
+	private boolean isValidMove(int row, int col) {
+		return row >= && row < maze.getRows() &&
+				col >= 0 && col < maze.getCols() &&
+	               !maze.isWall(row, col);
+	    }
+	
+	private void movePlayer(int newRow, int newCol) {
+        try {
+            Cell nextCell = maze.getCell(newRow, newCol);
+            player.setCurrentCell(nextCell);
+            playMoveSound();
+        } catch (Exception ex) {
+            System.err.println("Error moving player: " + ex.getMessage());
+        }
+	
+    private void playMoveSound() {
+    	try {
+    		
+    	}
+    }
 
 			// ensuring in bounds
 			if (newRow >= 0 && newRow < maze.getRows() 
