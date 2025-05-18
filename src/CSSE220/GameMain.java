@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 public class GameMain extends JFrame implements ActionListener, KeyListener{
 
 	/**
-	 * 
+	 * h
 	 */
 	private static final long serialVersionUID = 1L;
 	

@@ -69,6 +69,10 @@ public class InputHandler implements KeyListener {
 			}
 		}*/
 	
+	public InputHandler(Maze maze, Player player) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void keyReleased(KeyEvent e) {
 
@@ -77,5 +81,11 @@ public class InputHandler implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
