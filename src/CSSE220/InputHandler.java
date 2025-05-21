@@ -14,7 +14,7 @@ public class InputHandler implements KeyListener {
 	private Player player;
 
 	public InputHandler(Maze maze, Player player) {
-		this.maze = maze;
+		this.maze = maze; 1
 		this.player = player;
 	}123
 
