@@ -11,9 +11,31 @@ import javax.swing.SwingUtilities;
 
 public class GameMain extends JFrame implements ActionListener, KeyListener{
 
-	/**
-	 * h
-	 */
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/*private final Game
 	private static final long serialVersionUID = 1L;
 	
 	private MazePanel mazePanel;
@@ -159,4 +181,6 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 		score =0; 
 		level = 0;
 	}
+}
+	*/
 }
