@@ -1,12 +1,16 @@
 package CSSE220;
 
 import java.awt.Point;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+
+
 
 public class GameMain extends JFrame implements ActionListener{
 
@@ -14,10 +18,12 @@ public class GameMain extends JFrame implements ActionListener{
 	
 	private MazePanel mazePanel;
 	private javax.swing.Timer gameTimer;
+	private final int TIME_LIMIT = 60;
 
 	private Maze maze;
 	private Player player;
 	private InputHandler input;
+	private StopWatch stopwatch;
 		
     
   
@@ -26,15 +32,13 @@ public class GameMain extends JFrame implements ActionListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
-	
-
-		
 		maze = new MazeGenerator(0.3).generate(30,30);
 		player = new Player(new Point(0,0));
-
 		
 		mazePanel = new MazePanel(maze, player, null);
 		input = new InputHandler(maze, player);
+		
+		
 		
 		mazePanel.setFocusable(true);
 		mazePanel.requestFocusInWindow();
@@ -45,14 +49,30 @@ public class GameMain extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setVisible(true);
 		
+//		
+//		stopwatch = new StopWatch();
+//		stopwatch.start();
 		gameTimer = new javax.swing.Timer(1000/60, this);
 		gameTimer.start();
-	}
-	
+	}	
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		mazePanel.repaint();
+		
+//		long elapsedMs = stopwatch.getElapsedTime();
+//		int elapsedSec = (int)(elapsedMs/1000);
+//		if (elapsedSec >= TIME_LIMIT) {
+//			gameTimer.stop();
+//			JOptionPane.showMessageDialog(this, "The timer ran out! Try again.");
+//			return;
+//		}
+		
+//		public int getTimeLeft() {
+//			// TODO Auto-generated method stub
+//			int elapsedSec = (int)(stopwatch.getElapsedTime() / 1000);
+//	        return Math.max(0, TIME_LIMIT - elapsedSec);
+//		}	
 		
 		Point point = player.getPosition();
 		if(point.x == maze.getCols()-1 &&
@@ -67,18 +87,4 @@ public class GameMain extends JFrame implements ActionListener{
 		SwingUtilities.invokeLater(GameMain::new);
 
 	}
-
-
-	public String getTimeLeft() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	
-	
-	
-	
-
 }

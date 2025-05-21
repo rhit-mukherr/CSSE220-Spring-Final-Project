@@ -61,8 +61,9 @@ public class MazePanel extends JPanel{
 					CELL_SIZE,
 					CELL_SIZE);
 		
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("Monospaced", Font.BOLD, 16));
-		g.drawString("Time: " + game.getTimeLeft(), 10, 20);
+//		g.setColor(Color.WHITE);
+//		g.setFont(new Font("Monospaced", Font.BOLD, 16));
+//	
+//		g.drawString("Time: " + game.getTimeLeft(), 10, 20);
 	}
 }
