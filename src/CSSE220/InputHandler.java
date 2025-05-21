@@ -25,14 +25,18 @@ public class InputHandler implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()){
-			case KeyEvent.VK_UP: player.move(0,-1,maze); 
-			break;
-			case KeyEvent.VK_DOWN: player.move(0,+1,maze);
-			break;
-			case KeyEvent.VK_RIGHT: player.move(+1,0,maze);
-			break;
-			case KeyEvent.VK_LEFT: player.move(-1,0,maze);
-
+			case KeyEvent.VK_UP: 
+				player.move(0,-1,maze); 
+				break;
+			case KeyEvent.VK_DOWN: 
+				player.move(0,+1,maze);
+				break;
+			case KeyEvent.VK_RIGHT: 
+				player.move(+1,0,maze);
+				break;
+			case KeyEvent.VK_LEFT: 
+				player.move(-1,0,maze);
+				break;
  
 		}
 	}
