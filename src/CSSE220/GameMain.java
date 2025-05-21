@@ -33,7 +33,7 @@ public class GameMain extends JFrame implements ActionListener{
 		player = new Player(new Point(0,0));
 
 		
-		mazePanel = new MazePanel(maze, player);
+		mazePanel = new MazePanel(maze, player, null);
 		input = new InputHandler(maze, player);
 		
 		mazePanel.setFocusable(true);
@@ -58,15 +58,20 @@ public class GameMain extends JFrame implements ActionListener{
 		if(point.x == maze.getCols()-1 &&
 			point.y == maze.getRows() -1)	{
 			gameTimer.stop();
-			JOptionPane.showMessageDialog(this, "you win");
+			JOptionPane.showMessageDialog(this, "We have a winnner");
 		}
 	}
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
 		SwingUtilities.invokeLater(GameMain::new);
 
+	}
+
+
+	public String getTimeLeft() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

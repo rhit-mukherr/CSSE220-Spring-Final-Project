@@ -2,6 +2,7 @@ package CSSE220;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
 
@@ -11,11 +12,13 @@ public class MazePanel extends JPanel{
 	private Maze maze;
 	private static final int CELL_SIZE = 32;
 	private Player player;
+	private GameMain game;
 	
 	
-	public MazePanel(Maze maze, Player player) {
+	public MazePanel(Maze maze, Player player, GameMain game) {
 		this.maze = maze;
 		this.player = player;
+		this.game = game;
 		setPreferredSize(new Dimension(maze.getCols()*CELL_SIZE, 
 				maze.getRows()*CELL_SIZE));
 	}
@@ -50,7 +53,7 @@ public class MazePanel extends JPanel{
 			}
 			
 		}
-		// drawing the player
+		
 		g.setColor(Color.RED);
 		Point p = player.getPosition();
 		g.fillOval( p.x*CELL_SIZE,
@@ -58,5 +61,8 @@ public class MazePanel extends JPanel{
 					CELL_SIZE,
 					CELL_SIZE);
 		
+		g.setColor(Color.WHITE);
+		g.setFont(new Font("Monospaced", Font.BOLD, 16));
+		g.drawString("Time: " + game.getTimeLeft(), 10, 20);
 	}
 }
