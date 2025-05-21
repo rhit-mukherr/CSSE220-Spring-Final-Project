@@ -1,5 +1,6 @@
 package CSSE220;
 
+import java.awt.Panel;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,35 +8,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
-public class GameMain extends JFrame implements ActionListener, KeyListener{
+public class GameMain extends JFrame implements ActionListener{
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 	
-	/*private final Game
 	private static final long serialVersionUID = 1L;
 	
 	private MazePanel mazePanel;
@@ -43,7 +21,7 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 	
 	private Maze maze;
 	private Player player;
-	private InputHandler i;
+	private InputHandler input;
 		
     
     private int difficulty;	
@@ -63,22 +41,23 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
     public static final int HARD = 1;  
 	
 	public GameMain(){
-		setTitle("Maze Escape");
+		super("Maze Game");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
 		isGameOver = false;
 		inGame = false;
-		player = new Player("Default", "Wall-E");
+		player = new Player(new Point(0,0));
 		score = 0;
 		level = 0; 
 		difficulty = EASY;
 		
+		maze = new MazeGenerator(0.3).generate(17, 17);
 		mazePanel = new MazePanel(maze, player);
-		i = new InputHandler(maze, player);
+		input = new InputHandler(maze, player);
 		
 		mazePanel.setFocusable(true);
-		mazePanel.addKeyListener(i);
+		mazePanel.addKeyListener(input);
 		
 		add(mazePanel);
 		pack();
@@ -89,9 +68,16 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 		gameTimer.start();
 	}
 	
-	public void createMaze() {
-		this.maze = new Maze(START_LEVEL_WIDTH + (2*(level+difficulty)), START_LEVEL_HEIGHT + (2*(level+difficulty)),player);
-		i = new InputHandler(maze, player);
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		mazePanel.repaint();
+		
+		Point point = player.getPosition();
+		if(point.x == maze.getCols()-1 && point.y == maze.getRows() -1)	{
+			gameTimer.stop();
+			JOptionPane.showMessageDialog(this, "you win");
+		}
 	}
 	
 	public static void main(String[] args) {
@@ -100,87 +86,12 @@ public class GameMain extends JFrame implements ActionListener, KeyListener{
 		SwingUtilities.invokeLater(GameMain::new);
 
 	}
-	
-	public void setIsGameOver(boolean isGameOver) {
-		this.isGameOver = isGameOver;
-	}
-	
-	public boolean isGameOver() {
-		return isGameOver;
-	}
-	
-	public void setIsInGame() {
-		this.inGame = inGame;
-	}
-	
-	public void setInputHandler(InputHandler i) {
-		this.i = i;
-	}
-	
-	public InputHandler getinputHandler() {
-		return i; 
-	}
-	
-	public Player getPlayer() {
-		return this.player;
-	}
-	
-	public Maze getMaze() {
-		return this.maze;
-	}
-	
-	public void updateScore() {
-		score = player.getTreasuresCollected() + POINTS_ENEMY_KILLED * player.getEnemiesKilled();
-	}
-	
-	public int getScore() {
-		return score;
-	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-		mazePanel.repaint();
-		
-	}
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+
+
 	
-	public int getLevel() {
-		return level;
-	}
 	
-	public boolean getFinishedLevel() {
-		return finishedLevel;
-	}
 	
-	public void setFinishedLevel(boolean c) {
-		finishedLevel = c;
-	}
 	
-	public void setDifficulty(int difficulty) {
-		// TODO Auto-generated method stub
-		this.difficulty = difficulty;
-	}
-	
-	public void clearGame() {
-		score =0; 
-		level = 0;
-	}
-}
-	*/
+
 }
