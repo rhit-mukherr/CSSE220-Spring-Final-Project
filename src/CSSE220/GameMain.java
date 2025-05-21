@@ -29,7 +29,7 @@ public class GameMain extends JFrame implements ActionListener{
 	
 
 		
-		maze = new MazeGenerator(0.3).generate(20,20);
+		maze = new MazeGenerator(0.3).generate(30,30);
 		player = new Player(new Point(0,0));
 
 		
