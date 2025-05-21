@@ -21,5 +21,5 @@ public class Player {
 				&& !maze.isWall(vertical, horizontal)) {
 			position.setLocation(horizontal, vertical);
 		}
-	}//
+	}
 }
