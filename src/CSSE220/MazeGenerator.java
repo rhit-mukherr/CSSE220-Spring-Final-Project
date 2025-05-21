@@ -10,6 +10,11 @@ public class MazeGenerator {
 		
 	
 	}
+
+	public static boolean[][] generateMaze(int rows, int cols) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
 

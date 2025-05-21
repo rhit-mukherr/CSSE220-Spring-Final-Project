@@ -14,6 +14,10 @@ public class Cell {
 		
 	}
 	
+	public Cell(boolean b, int r, int c) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public boolean isWall() {
 		return wall;
 	}

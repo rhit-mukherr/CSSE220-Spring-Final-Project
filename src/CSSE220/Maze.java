@@ -26,7 +26,11 @@ public class Maze {
         this.player.setCurrentCell(getFirstOpenCell());
     }
 
-    private Cell getFirstOpenCell() {
+    public Maze(int i, int j, Player player2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	private Cell getFirstOpenCell() {
         for (int r = 0; r < rows; r++) {
             for (int c = 0; c < cols; c++) {
                 if (!grid[r][c].isWall()) {
