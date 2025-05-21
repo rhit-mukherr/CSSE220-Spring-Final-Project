@@ -21,5 +21,24 @@ public class Player {
 				&& !maze.isWall(vertical, horizontal)) {
 			position.setLocation(horizontal, vertical);
 		}
-	}
+		if(!maze.isWall(vertical, horizontal)) {
+			position.setLocation(horizontal,vertical);
+		}
+		
+			Point next = new Point(position.x + dx, position.y + dy);
+			
+			try {
+				if(maze.isWall(next.y, next.x)) {
+				System.out.println("hit Wall");
+			}else {
+				this.position = next;
+			}
+				
+			}catch(IndexOutOfBoundsException a) {
+				System.out.println("You are out of bound");
+			
+			}
+			
+		}
+	
 }//
