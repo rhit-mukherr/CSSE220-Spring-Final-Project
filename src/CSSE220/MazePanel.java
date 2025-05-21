@@ -16,7 +16,8 @@ public class MazePanel extends JPanel{
 	public MazePanel(Maze maze, Player player) {
 		this.maze = maze;
 		this.player = player;
-		setPreferredSize(new Dimension(maze.getCols()*CELL_SIZE, maze.getRows()*CELL_SIZE));
+		setPreferredSize(new Dimension(maze.getCols()*CELL_SIZE, 
+				maze.getRows()*CELL_SIZE));
 	}
 	
 	@Override
@@ -25,19 +26,37 @@ public class MazePanel extends JPanel{
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, getWidth(), getHeight());
-		g.setColor(Color.GRAY);
+
 		
+		//drawing the walls;
 		for (int r = 0; r < maze.getRows(); r++) {
             for (int c = 0; c < maze.getCols(); c++) {
                 if (maze.isWall(r, c)) {
-                    g.fillRect(c * CELL_SIZE, r * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                    g.fillRect(
+                    		c * CELL_SIZE, 
+                    		r * CELL_SIZE,
+                    		CELL_SIZE,
+                    		CELL_SIZE);
                 }
             }
         }
 		
+		g.setColor(Color.blue);
+		for(int r= 0; r<maze.getRows(); r++) {
+			for(int c =0; c<maze.getCols(); c++) {
+				if(maze.isWall(r, c)) {
+					g.fillRect(c*CELL_SIZE, r*CELL_SIZE, CELL_SIZE, CELL_SIZE);
+				}
+			}
+			
+		}
+		// drawing the player
 		g.setColor(Color.RED);
 		Point p = player.getPosition();
-		g.fillOval(p.x*CELL_SIZE, p.y*CELL_SIZE, CELL_SIZE, CELL_SIZE);
+		g.fillOval( p.x*CELL_SIZE,
+					p.y*CELL_SIZE,
+					CELL_SIZE,
+					CELL_SIZE);
 		
 	}
 }

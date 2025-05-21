@@ -7,7 +7,7 @@ public class MazeGenerator {
 //	private final int branch;
 	private double wallProbablity;
 	
-	public MazeGenerator(double d) {
+	public MazeGenerator(double wallProbablity) {
 		this.wallProbablity = wallProbablity;
 		
 	
