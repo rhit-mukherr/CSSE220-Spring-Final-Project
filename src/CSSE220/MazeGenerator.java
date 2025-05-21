@@ -32,7 +32,7 @@ public class MazeGenerator {
 				
 				
 				boolean isWall = rand.nextDouble() < wallProbablity;
-				maze.setWall(r,c,isWall)	;
+				maze.setWall(r,c,isWall);
 				
 				
 			}

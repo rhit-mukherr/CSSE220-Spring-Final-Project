@@ -11,7 +11,6 @@ import javax.swing.SwingUtilities;
 public class GameMain extends JFrame implements ActionListener{
 
 	
-	private static final long serialVersionUID = 1L;
 	
 	private MazePanel mazePanel;
 	private javax.swing.Timer gameTimer;
