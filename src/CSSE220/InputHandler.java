@@ -14,9 +14,9 @@ public class InputHandler implements KeyListener {
 	private Player player;
 
 	public InputHandler(Maze maze, Player player) {
-		this.maze = maze;
+		this.maze = maze; 1
 		this.player = player;
-	}
+	}123
 
 
 	@Override
@@ -69,6 +69,10 @@ public class InputHandler implements KeyListener {
 			}
 		}*/
 	
+	public InputHandler(Maze maze, Player player) {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public void keyReleased(KeyEvent e) {
 
