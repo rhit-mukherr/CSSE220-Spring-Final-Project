@@ -9,14 +9,16 @@ public class Cell {
 	
 	public Cell(boolean wall) {
 		this.wall = wall;
-		this.row = row;
-		this.col = col;
+		
 		
 	}
 	
-	public Cell(boolean b, int r, int c) {
-		// TODO Auto-generated constructor stub
-	}
+//	public Cell(boolean b, int r, int c) {
+//		// TODO Auto-generated constructor stub
+//		this.wall = wall;
+//		this.row = row;
+//		this.col = col;
+//	}
 
 	public boolean isWall() {
 		return wall;

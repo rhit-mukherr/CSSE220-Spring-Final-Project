@@ -18,11 +18,11 @@ public class MazeGenerator {
 		Random rand = new Random();
 		
 		for(int c = 0; c< cols; c++) {
-//			maze.setWall(0,c,false);
+			maze.setWall(0,c,false);
 		}
 		
 		for(int r = 0; r<rows; r++) {
-//			maze.getWall(r, cols-1, false);
+			maze.setWall(r, cols-1, false);
 		}
 		
 		for(int r = 0; r<rows; r++) {
@@ -32,7 +32,7 @@ public class MazeGenerator {
 				
 				
 				boolean isWall = rand.nextDouble() < wallProbablity;
-				//maze.setWall(r,c,isWall)	;
+				maze.setWall(r,c,isWall)	;
 				
 				
 			}
