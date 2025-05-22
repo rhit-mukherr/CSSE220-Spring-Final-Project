@@ -11,6 +11,9 @@ import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 
+/**
+ * The mian window and game loop for the game
+ */
 
 public class GameMain extends JFrame implements ActionListener{
 
@@ -26,6 +29,12 @@ public class GameMain extends JFrame implements ActionListener{
 	private StopWatch stopwatch;
 		
     
+	
+	/**
+	 * this constructor sets up the maze, player, panel, 
+	 * input, and starts the game.
+	 * 
+	 */
   
 	public GameMain(){
 		super("Maze Game");
@@ -56,6 +65,10 @@ public class GameMain extends JFrame implements ActionListener{
 		gameTimer.start();
 	}	
 	
+	/**
+	 * called every frame: re-draw and checks for win
+	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		mazePanel.repaint();
@@ -82,6 +95,11 @@ public class GameMain extends JFrame implements ActionListener{
 		}
 	}
 	
+	
+	/**
+	 * this starts the application.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SwingUtilities.invokeLater(GameMain::new);
