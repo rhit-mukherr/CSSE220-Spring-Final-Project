@@ -1,12 +1,20 @@
 package CSSE220;
 
 import java.awt.event.KeyEvent;
+
+
 import java.awt.event.KeyListener;
 import java.net.URL;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+
+
+/**
+ * this class handles arrow-key input to move the player
+ * 
+ */
 
 public class InputHandler implements KeyListener {
 
@@ -21,6 +29,14 @@ public class InputHandler implements KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 	}
+	
+	
+	
+	/**
+	 * called when the key is pressed 
+	 * and move the player if the player is within the 
+	 * boundary
+	 */
 
 	@Override
 	public void keyPressed(KeyEvent e) {
