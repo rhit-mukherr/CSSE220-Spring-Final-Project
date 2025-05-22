@@ -15,30 +15,22 @@ public class Player {
 	}
 	
 	public void move(int dx, int dy, Maze maze) {
-		int horizontal = position.x +dx;
-		int vertical = position.y + dy;
-		if(horizontal >= 0 && vertical < maze.getRows() && horizontal >= 0 && vertical < maze.getCols()
-				&& !maze.isWall(vertical, horizontal)) {
-			position.setLocation(horizontal, vertical);
-		}
-		if(!maze.isWall(vertical, horizontal)) {
-			position.setLocation(horizontal,vertical);
+		int nx = position.x +dx;
+		int ny = position.y + dy;
+		
+		if(nx < 0|| ny<0 ||nx >= maze.getCols() || ny >= maze.getRows()) {
+			System.out.println("Out of Bound!");
+			return;
 		}
 		
-			Point next = new Point(position.x + dx, position.y + dy);
-			
-			try {
-				if(maze.isWall(next.y, next.x)) {
-				System.out.println("hit Wall");
-			}else {
-				this.position = next;
-			}
-				
-			}catch(IndexOutOfBoundsException a) {
-				System.out.println("You are out of bound");
-			
-			}
-			
+		if(maze.isWall(ny, nx)) {
+			System.out.println("Hit wall");
+			return;
+		}
+		
+		position.setLocation(nx,ny);
+		
+					
 		}
 	
 }//

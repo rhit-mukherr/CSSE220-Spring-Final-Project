@@ -12,7 +12,7 @@ import javax.swing.Timer;
 
 
 /**
- * The mian window and game loop for the game
+ * The main window and game loop for the game
  */
 
 public class GameMain extends JFrame implements ActionListener{
@@ -41,7 +41,7 @@ public class GameMain extends JFrame implements ActionListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
-		maze = new MazeGenerator(0.3).generate(30,30);
+		maze = new MazeGenerator(0.4).generate(30,30);
 		player = new Player(new Point(0,0));
 		
 		mazePanel = new MazePanel(maze, player, null);
