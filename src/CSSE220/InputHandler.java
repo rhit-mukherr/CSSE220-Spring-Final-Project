@@ -1,5 +1,6 @@
 package CSSE220;
 
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 
 
@@ -20,10 +21,12 @@ public class InputHandler implements KeyListener {
 
 	private Maze maze;
 	private Player player;
+	private SoundManager sound;
 
-	public InputHandler(Maze maze, Player player) {
+	public InputHandler(Maze maze, Player player, SoundManager sound) {
 		this.maze = maze; 
 		this.player = player;
+		this.sound = sound;
 	}
 
 	@Override
@@ -37,6 +40,8 @@ public class InputHandler implements KeyListener {
 	 * and move the player if the player is within the 
 	 * boundary
 	 */
+	
+	Point before = new Point(player.getPosition());
 
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -54,6 +59,14 @@ public class InputHandler implements KeyListener {
 				player.move(-1,0,maze);
 				break;
  
+		}
+		
+		Point after = player.getPosition();
+		
+		if(after.equals(before)){
+			sound.playWallHit();
+		} else {
+			
 		}
 	}
 
