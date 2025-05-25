@@ -41,10 +41,12 @@ public class InputHandler implements KeyListener {
 	 * boundary
 	 */
 	
-	Point before = new Point(player.getPosition());
 
 	@Override
 	public void keyPressed(KeyEvent e) {
+		
+		Point before = new Point(player.getPosition());
+
 		switch(e.getKeyCode()){
 			case KeyEvent.VK_UP: 
 				player.move(0,-1,maze); 
