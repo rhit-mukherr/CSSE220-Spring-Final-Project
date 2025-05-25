@@ -23,6 +23,7 @@ public class GameMain extends JFrame implements ActionListener{
 	private javax.swing.Timer gameTimer;
 	private final int TIME_LIMIT = 60;
 
+	private SoundManager sound;
 	private Maze maze;
 	private Player player;
 	private InputHandler input;
@@ -43,9 +44,9 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		maze = new MazeGenerator(0.4).generate(30,30);
 		player = new Player(new Point(0,0));
-		
+		sound = new SoundManager();
 		mazePanel = new MazePanel(maze, player, null);
-		input = new InputHandler(maze, player);
+		input = new InputHandler(maze, player, sound);
 		
 		
 		
