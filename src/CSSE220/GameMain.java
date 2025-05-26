@@ -129,12 +129,6 @@ public class GameMain extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
-=======
-		
-		
-		
->>>>>>> branch 'master' of https://github.com/rhit-mukherr/CSSE220-Spring-Final-Project.git
 		Point pos = player.getPosition();
 		PowerUp up = maze.pickupAt(pos.y, pos.x);
 		if(up != null) {
@@ -171,8 +165,6 @@ public class GameMain extends JFrame implements ActionListener{
                 new HighScoreManager().add(initials, level, timeLeft);
             }
 			showEndMessage("We have a winner, Do you want to advance to the next level");
-<<<<<<< HEAD
-=======
 		}
 		
 		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
@@ -187,11 +179,7 @@ public class GameMain extends JFrame implements ActionListener{
 			
 			showEndMessage("Lvevl "+ level + " Cleared! Chanllenge to the Next Level? ");
 		}
-		
-		
->>>>>>> branch 'master' of https://github.com/rhit-mukherr/CSSE220-Spring-Final-Project.git
 		}
-	}
 	
 	 private void endRun(String message, boolean advance) {
 	        String[] opts = {"Yes", "No"};
