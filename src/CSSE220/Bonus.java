@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 
 /**
- * gives additional time as a powerup class; 
+ * gives additional time as a powerup1 class; 
  */
 
 public class Bonus implements PowerUp {
