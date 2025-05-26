@@ -78,25 +78,7 @@ public class InstructionPanel {
 	        });
 				frame.add(instructions);
 		}
-		/*frame.getContentPane().setBackground(Color.WHITE);
-		instructions.setBackground(Color.WHITE);
-		frame.setResizable(true);
-		frame.setLayout(new GridBagLayout());
-		BufferedImage wasd = null;
-	   try {
-	    	wasd = ImageIO.read(this.getClass().getResource(""));
-	    } catch (IOException e) {
-	    	System.err.println("Failed to read sprite.");
-	    }
-		
-	    BufferedImage htp = null;
-	    try {
-	    	htp = ImageIO.read(this.getClass().getResource(""));
-	    } catch (IOException e){
-	    	System.err.println("Failed to read sprite.");
-	    }
-	}*/
-		
+
 	public void setVisible(boolean b) {
 		frame.setVisible(b);
 	}
