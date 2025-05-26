@@ -214,6 +214,7 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		
 		if(choose == JOptionPane.YES_OPTION	) {
+			level++;
 			restartGame();
 		} else {
 			System.exit(0);
