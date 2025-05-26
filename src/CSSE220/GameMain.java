@@ -1,6 +1,7 @@
 package CSSE220;
 
 import java.awt.Point;
+import java.awt.Font;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 
 
@@ -61,6 +63,8 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		JButton instructionsBtn = new JButton("Instructions");
 	    instructionsBtn.setFocusable(false);
+	    instructionsBtn.setPreferredSize(new Dimension(200, 30));
+	    instructionsBtn.setFont(instructionsBtn.getFont().deriveFont(Font.BOLD, 16f));
 	    instructionsBtn.addActionListener(ev -> {
 	        InstructionPanel ip = new InstructionPanel();
 	        ip.setVisible(true);
