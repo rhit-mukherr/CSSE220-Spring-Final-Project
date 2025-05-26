@@ -176,9 +176,8 @@ public class GameMain extends JFrame implements ActionListener{
 				System.exit(0);
 				return;
 			}
-			
-			showEndMessage("Lvevl "+ level + " Cleared! Chanllenge to the Next Level? ");
 		}
+		
 		}
 	
 	 private void endRun(String message, boolean advance) {
