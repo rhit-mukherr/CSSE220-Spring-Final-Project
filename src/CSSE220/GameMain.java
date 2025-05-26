@@ -183,7 +183,7 @@ public class GameMain extends JFrame implements ActionListener{
 				return;
 			}
 			
-			showEndMessage("Lvevl "+ level + " Cleared! Chanllenge to the Next Level? ");
+	
 		}
 		
 		
