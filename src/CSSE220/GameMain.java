@@ -152,7 +152,16 @@ public class GameMain extends JFrame implements ActionListener{
 		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
 			gameTimer.stop();
 			stopwatch.stop();
-			int score = timeLeft + level * 1000;
+			if (difficultyIndex >= difficulties.length - 1) {
+	            JOptionPane.showMessageDialog(
+	                this,
+	                "Congrats! You reached the Max Level",
+	                "Close Game",
+	                JOptionPane.INFORMATION_MESSAGE
+	            );
+	            System.exit(0);
+	        }else {
+	        	int score = timeLeft + level * 1000;
             String initials = JOptionPane.showInputDialog(
                 this,
                 "You cleared Level " + level + "!\nEnter your initials:",
@@ -166,19 +175,14 @@ public class GameMain extends JFrame implements ActionListener{
             }
 			showEndMessage("We have a winner, Do you want to advance to the next level");
 		}
+			return;
 		
-		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
-			gameTimer.stop();
-			stopwatch.stop();
+		}
+	}
 			
-			if(difficultyIndex > difficulties.length-1) {
-				JOptionPane.showMessageDialog(this, "You made it!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-				System.exit(0);
-				return;
-			}
-		}
+			
 		
-		}
+		
 	
 	 private void endRun(String message, boolean advance) {
 	        String[] opts = {"Yes", "No"};

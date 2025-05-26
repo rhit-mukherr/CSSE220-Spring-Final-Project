@@ -18,7 +18,7 @@ public class MazeGenerator {
 	private double wallProbablity;
 	
 	/**
-	 * constructs a new mazegenerator.
+	 * constructs a new maze generator.
 	 * @param wallProbablity: the fraction of cells between 
 	 * 0 and 1
 	 */
