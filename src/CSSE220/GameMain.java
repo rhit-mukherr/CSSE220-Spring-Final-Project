@@ -59,7 +59,7 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		
 		mazePanel = new MazePanel(maze, player, this);
-		input = new InputHandler(maze, player, sound);
+		input = new InputHandler(maze, player, sound, this);
 		
 		
 		
@@ -210,7 +210,7 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		
 		mazePanel.removeKeyListener(input);
-		InputHandler newInput = new InputHandler(maze, newPlayer, sound);
+		InputHandler newInput = new InputHandler(maze, newPlayer, sound, this);
 		this.input = newInput;
 		mazePanel.addKeyListener(newInput);
 	

@@ -15,7 +15,7 @@ public class SoundManager {
 	
 	public SoundManager() {
 		try {
-			File soundFile = new File("src/CSSE220/sounds/mixkit-wood-hard-hit-2182.wav");
+			File soundFile = new File("CSSE220/sounds/mixkit-wood-hard-hit-2182.wav");
 			AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 			sound= AudioSystem.getClip();
 			sound.open(audioIn);
