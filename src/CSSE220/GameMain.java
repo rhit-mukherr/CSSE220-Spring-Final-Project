@@ -1,14 +1,21 @@
 package CSSE220;
 
 import java.awt.Point;
+import java.awt.Font;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 
 
 /**
@@ -30,8 +37,7 @@ public class GameMain extends JFrame implements ActionListener{
 	private Player player;
 	private InputHandler input;
 	private StopWatch stopwatch;
-		
-    
+	private int level = 1;
 	
 	/**
 	 * this constructor sets up the maze, player, panel, 
@@ -60,11 +66,48 @@ public class GameMain extends JFrame implements ActionListener{
 		mazePanel.setFocusable(true);
 		mazePanel.addKeyListener(input);
 		
+		JButton instructionsBtn = new JButton("Instructions");
+	    instructionsBtn.setFocusable(false);
+	    instructionsBtn.setPreferredSize(new Dimension(200, 30));
+	    instructionsBtn.setFont(instructionsBtn.getFont().deriveFont(Font.BOLD, 16f));
+	    instructionsBtn.addActionListener(ev -> {
+	        InstructionPanel ip = new InstructionPanel();
+	        ip.setVisible(true);
+	    });
+		
 		add(mazePanel);
 		addKeyListener(input);
 		pack();
 		setLocationRelativeTo(null);
 		setVisible(true);
+		
+		JButton highScoresBtn = new JButton("High Scores");
+		highScoresBtn.setFocusable(false);
+		highScoresBtn.setPreferredSize(new Dimension(200, 30));
+		highScoresBtn.setFont(highScoresBtn.getFont().deriveFont(Font.BOLD, 16f));
+		highScoresBtn.addActionListener(ev -> {
+		    List<HighScoreManager.Entry> top = new HighScoreManager().load();
+		    StringBuilder sb = new StringBuilder(" Top Scores \n\n");
+		    int rank = 1;
+		    for (HighScoreManager.Entry e : top) {
+		        sb.append(String.format("%2d. %-3s : %d\n", rank++, e.initials, e.score));
+		    }
+		    if (top.isEmpty()) {
+		        sb.append("No scores yet!");
+		    }
+		    JOptionPane.showMessageDialog(
+		        this,
+		        sb.toString(),
+		        "High Scores",
+		        JOptionPane.INFORMATION_MESSAGE
+		    );
+		});
+		
+		JPanel southPanel = new JPanel();
+		southPanel.add(instructionsBtn);
+		southPanel.add(highScoresBtn);
+		add(southPanel, BorderLayout.SOUTH);
+
 		
 		SwingUtilities.invokeLater(()-> mazePanel.requestFocusInWindow());
 		
@@ -113,13 +156,26 @@ public class GameMain extends JFrame implements ActionListener{
 		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
 			gameTimer.stop();
 			stopwatch.stop();
-			showEndMessage("We have a winner");
-		}
-		
-			// TODO Auto-generated method stub
-			
+			int score = timeLeft + level * 1000;
+            String initials = JOptionPane.showInputDialog(
+                this,
+                "You cleared Level " + level + "!\nEnter your initials:",
+                "New High Score",
+                JOptionPane.PLAIN_MESSAGE
+            );
+            if (initials != null && !initials.trim().isEmpty()) {
+                initials = initials.trim().toUpperCase();
+                if (initials.length() > 3) initials = initials.substring(0, 3);
+                new HighScoreManager().add(initials, score);
+            }
+			showEndMessage("We have a winner, Do you want to advance to the next level");
 		}	
-		
+		}
+	
+	public int getLevel() {
+	    return level;
+	}
+	
 	public int getTimeLeft(){
 		
 		int elapsed = (int)(stopwatch.getElapsedTime()/1000	);
