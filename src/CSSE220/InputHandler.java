@@ -33,8 +33,6 @@ public class InputHandler implements KeyListener {
 	public void keyTyped(KeyEvent e) {
 	}
 	
-	
-	
 	/**
 	 * called when the key is pressed 
 	 * and move the player if the player is within the 
