@@ -90,7 +90,7 @@ public class GameMain extends JFrame implements ActionListener{
 		    StringBuilder sb = new StringBuilder(" Top Scores \n\n");
 		    int rank = 1;
 		    for (HighScoreManager.Entry e : top) {
-		        sb.append(String.format("%2d. %-3s : %d\n", rank++, e.initials, e.score));
+		        sb.append(String.format("%2d. %-3s : %d\n", rank++, e.initials, e.level));
 		    }
 		    if (top.isEmpty()) {
 		        sb.append("No scores yet!");
@@ -166,7 +166,7 @@ public class GameMain extends JFrame implements ActionListener{
             if (initials != null && !initials.trim().isEmpty()) {
                 initials = initials.trim().toUpperCase();
                 if (initials.length() > 3) initials = initials.substring(0, 3);
-                new HighScoreManager().add(initials, score);
+                new HighScoreManager().add(initials, level, score);
             }
 			showEndMessage("We have a winner, Do you want to advance to the next level");
 		}	
