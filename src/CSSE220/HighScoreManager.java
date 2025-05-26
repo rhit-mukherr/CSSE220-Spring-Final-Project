@@ -20,7 +20,7 @@ public class HighScoreManager {
     public static class Entry implements Comparable<Entry> {
         public final String initials;
         public final int timeLeft;
-		private int level;
+		int level;
 
         /*
          * A single high score entry: initials and numeric score
