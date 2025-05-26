@@ -59,6 +59,11 @@ public class InstructionPanel {
         gbc.gridy = 2;
         instructions.add(objectiveLabel, gbc);
         
+        JLabel yellowdotins = new JLabel("Collect the yellow tokens to add 5 seconds to the timer.");
+        objectiveLabel.setForeground(Color.WHITE);
+        gbc.gridy = 3;
+        instructions.add(yellowdotins, gbc);
+        
         backButton = new JButton("Back");
         gbc.gridy = 3;
         gbc.anchor = GridBagConstraints.CENTER;
