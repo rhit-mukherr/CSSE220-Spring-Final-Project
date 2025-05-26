@@ -109,12 +109,12 @@ public class GameMain extends JFrame implements ActionListener{
 		add(southPanel, BorderLayout.SOUTH);
 
 		
+		pack();
+	    setLocationRelativeTo(null);
+	    setVisible(true);
 		SwingUtilities.invokeLater(()-> mazePanel.requestFocusInWindow());
-		
 		gameTimer = new Timer(1000/60, this);
 		gameTimer.start();
-		
-		
 	
 	}	
 	
@@ -125,20 +125,16 @@ public class GameMain extends JFrame implements ActionListener{
 	private Maze createMazewithDifficulty() {
 		double prob = difficulties[difficultyIndex];
 		return new MazeGenerator(prob).generate(30, 30);
-		
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		Point pos = player.getPosition();
 		PowerUp up = maze.pickupAt(pos.y, pos.x);
 		if(up != null) {
 			up.apply(this);
 			sound.playPowerUp();
 		}
-		
-		
 		
 		mazePanel.repaint();
 		
@@ -166,11 +162,27 @@ public class GameMain extends JFrame implements ActionListener{
             if (initials != null && !initials.trim().isEmpty()) {
                 initials = initials.trim().toUpperCase();
                 if (initials.length() > 3) initials = initials.substring(0, 3);
-                new HighScoreManager().add(initials, level, score);
+                new HighScoreManager().add(initials, level, timeLeft);
             }
 			showEndMessage("We have a winner, Do you want to advance to the next level");
-		}	
 		}
+	}
+	
+	 private void endRun(String message, boolean advance) {
+	        String[] opts = {"Yes", "No"};
+	        int choice = JOptionPane.showOptionDialog(
+	            this, message, "Game Over",
+	            JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+	            null, opts, opts[0]
+	        );
+	        if (choice == JOptionPane.YES_OPTION && advance) {
+	            level++;
+	            difficultyIndex = Math.min(difficultyIndex + 1, difficulties.length - 1);
+	            restartGame();
+	        } else {
+	            System.exit(0);
+	        }
+	    }
 	
 	public int getLevel() {
 	    return level;
