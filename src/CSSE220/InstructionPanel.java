@@ -30,24 +30,50 @@ public class InstructionPanel {
 		frame = new JFrame();	
 		frame.setTitle("Game Instructions");		
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		backButton = new JButton("Close");	
+		frame.setSize(400,300);
+		frame.setLocationRelativeTo(null);
+		
 		instructions = new JPanel(new GridBagLayout());
+		instructions.setBackground(Color.DARK_GRAY);
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets  = new Insets(10,10,10,10);
+		gbc.gridx = 0;
+		gbc.anchor = GridBagConstraints.WEST;
+		
+		//Title
+		JLabel titleLabel = new JLabel("How to Play");
+        titleLabel.setForeground(Color.WHITE);
+        titleLabel.setFont(titleLabel.getFont().deriveFont(18f));
+        gbc.gridy = 0;
+        instructions.add(titleLabel, gbc);
+        
+        //Movement instructions
+        JLabel moveLabel = new JLabel("Use arrow keys to move your character.");
+        moveLabel.setForeground(Color.WHITE);
+        gbc.gridy = 1;
+        instructions.add(moveLabel, gbc);
+        
+        // Objective instructions
+        JLabel objectiveLabel = new JLabel("Reach the exit within the given time to win.");
+        objectiveLabel.setForeground(Color.WHITE);
+        gbc.gridy = 2;
+        instructions.add(objectiveLabel, gbc);
+        
+        backButton = new JButton("Back");
+        gbc.gridy = 3;
+        gbc.anchor = GridBagConstraints.CENTER;
+        instructions.add(backButton, gbc);
 
+        // back button
 		backButton.addActionListener(new ActionListener() {	
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					URL url = new URL("");
-					Clip clip = AudioSystem.getClip();
-					AudioInputStream ais = AudioSystem.getAudioInputStream(url);
-					clip.open(ais);
-					clip.start();
-				} catch (Exception ex) {
-					ex.printStackTrace();
-				}
-				frame.setVisible(false);	
-			}
-		});
-		frame.getContentPane().setBackground(Color.WHITE);
+				frame.dispose();
+	            }
+	        });
+				frame.add(instructions);
+		}
+		/*frame.getContentPane().setBackground(Color.WHITE);
 		instructions.setBackground(Color.WHITE);
 		frame.setResizable(true);
 		frame.setLayout(new GridBagLayout());
@@ -64,14 +90,7 @@ public class InstructionPanel {
 	    } catch (IOException e){
 	    	System.err.println("Failed to read sprite.");
 	    }
-	}
-	    //JLabel sprite1 = new JLabel(new Sprite(MazePanel.Sprite,48,48).getSprite());
-	
-		//JLabel keyboard = new JLabel(new ImageIcon(wasd));
-		//JLabel howtoplay = new JLabel(new ImageIcon(htp));
-		
-	    // Add game instructions here
-		//sprite.setText("Pick this up to kill the enemies!");
+	}*/
 		
 	public void setVisible(boolean b) {
 		frame.setVisible(b);

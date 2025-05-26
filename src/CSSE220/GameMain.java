@@ -5,10 +5,13 @@ import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import java.awt.BorderLayout;
+
 
 
 /**
@@ -55,6 +58,14 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		mazePanel.setFocusable(true);
 		mazePanel.addKeyListener(input);
+		
+		JButton instructionsBtn = new JButton("Instructions");
+	    instructionsBtn.setFocusable(false);
+	    instructionsBtn.addActionListener(ev -> {
+	        InstructionPanel ip = new InstructionPanel();
+	        ip.setVisible(true);
+	    });
+	    add(instructionsBtn, BorderLayout.SOUTH);
 		
 		add(mazePanel);
 		addKeyListener(input);
