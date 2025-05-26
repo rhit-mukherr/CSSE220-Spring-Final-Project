@@ -95,7 +95,7 @@ public class GameMain extends JFrame implements ActionListener{
 		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
 			gameTimer.stop();
 			stopwatch.stop();
-			showEndMessage("YOU WON!");
+			showEndMessage("We have a winner");
 		}
 		
 			// TODO Auto-generated method stub
