@@ -17,11 +17,13 @@ import javax.swing.Timer;
 
 public class GameMain extends JFrame implements ActionListener{
 
+	private static final double[] difficulties = {0.10, 0.15, 0.20, 0.25};
+	private int difficultyIndex = 0;
 	
 	
 	private MazePanel mazePanel;
 	private javax.swing.Timer gameTimer;
-	private final int TIME_LIMIT = 60;
+	private final int TIME_LIMIT = 30;
 
 	private SoundManager sound;
 	private Maze maze;
@@ -77,8 +79,24 @@ public class GameMain extends JFrame implements ActionListener{
 	 * called every frame: re-draw and checks for win
 	 */
 	
+	private Maze createMazewithDifficulty() {
+		double prob = difficulties[difficultyIndex];
+		return new MazeGenerator(prob).generate(30, 30);
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		Point pos = player.getPosition();
+		PowerUp up = maze.pickupAt(pos.y, pos.x);
+		if(up != null) {
+			up.apply(this);
+			sound.playPowerUp();
+		}
+		
+		
+		
 		mazePanel.repaint();
 		
 		long elapsedMs = stopwatch.getElapsedTime();
@@ -125,17 +143,18 @@ public class GameMain extends JFrame implements ActionListener{
 	
 	
 	private void restartGame()	{
-		Maze newMaze = new MazeGenerator(0.3).generate(30, 30);
+		
+		difficultyIndex = Math.min(difficultyIndex + 1 ,difficulties.length-1);
+		maze = createMazewithDifficulty();
 		Player newPlayer = new Player(new Point(0,0));
 		
-		this.maze = newMaze;
 		this.player = newPlayer;
 		
-		mazePanel.setMazeAndPlayer(newMaze, newPlayer);
+		mazePanel.setMazeAndPlayer(maze, newPlayer);
 		
 		
 		mazePanel.removeKeyListener(input);
-		InputHandler newInput = new InputHandler(newMaze, newPlayer, sound);
+		InputHandler newInput = new InputHandler(maze, newPlayer, sound);
 		this.input = newInput;
 		mazePanel.addKeyListener(newInput);
 	
@@ -147,7 +166,10 @@ public class GameMain extends JFrame implements ActionListener{
 		mazePanel.requestFocusInWindow();
 		mazePanel.repaint();
 	}
-
+	public void addTime(int bonusSec) {
+		// TODO Auto-generated method stub
+		stopwatch.addSeconds(bonusSec);
+	}
 	/**
 	 * this starts the application.
 	 * @param args
@@ -157,4 +179,8 @@ public class GameMain extends JFrame implements ActionListener{
 		SwingUtilities.invokeLater(GameMain::new);
 
 	}
+
+	
+
+	
 }

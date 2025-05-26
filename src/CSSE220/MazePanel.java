@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -27,6 +28,8 @@ public class MazePanel extends JPanel{
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
+		
+		//background
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, getWidth(), getHeight());
 
@@ -44,6 +47,13 @@ public class MazePanel extends JPanel{
             }
         }
 		
+		ArrayList<PowerUp> up = maze.getPowerUps();
+		for(PowerUp ups : up)	{
+			ups.draw(g, CELL_SIZE);
+		}
+	
+		
+		//player
 		g.setColor(Color.blue);
 		for(int r= 0; r<maze.getRows(); r++) {
 			for(int c =0; c<maze.getCols(); c++) {
@@ -54,6 +64,8 @@ public class MazePanel extends JPanel{
 			
 		}
 		
+	
+		//Player
 		g.setColor(Color.RED);
 		Point p = player.getPosition();
 		g.fillOval( p.x*CELL_SIZE,
@@ -62,13 +74,15 @@ public class MazePanel extends JPanel{
 					CELL_SIZE);
 		
 		
-		
+		//Timer
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Monospaced", Font.BOLD, 16));
 	
 		g.drawString("Time: " + game.getTimeLeft(), 10, 20);
 	}
 	
+	
+	// when the new game starts, change the maze and the player
 	public void setMazeAndPlayer(Maze newMaze, Player newPlayer) {
 		this.maze  = newMaze;
 		this.player = newPlayer;

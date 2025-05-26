@@ -42,5 +42,10 @@ public class SoundManager {
 			sound.stop();
 		}
 	}
+
+	public void playPowerUp() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

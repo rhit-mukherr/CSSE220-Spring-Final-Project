@@ -1,5 +1,6 @@
 package CSSE220;
 
+import java.awt.Point;
 import java.util.Random;
 /**
  * This class generate a random maze with a guarenteed L shaped 
@@ -42,6 +43,15 @@ public class MazeGenerator {
 			maze.setWall(r, cols-1, false);
 		}
 		
+		for(int i = 0; i< 3; i++) {
+			int r, c;
+			do { r= rand.nextInt(rows);
+			c = rand.nextInt(cols);
+			
+			}while (maze.isWall(r, c) || (r==0 &&c==0));
+			maze.addPowerup(new Bonus(new Point(c,r)));
+		}
+		
 		
 		// this for loop randomly place walls in all other cells
 		// except the L shaped route 
@@ -58,6 +68,8 @@ public class MazeGenerator {
 			}
 			
 		}
+		
+		
 		return maze;
 		
 	}

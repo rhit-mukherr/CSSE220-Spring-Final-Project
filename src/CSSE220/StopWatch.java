@@ -60,6 +60,11 @@ public class StopWatch {
 		this.elapsedTime = 0;
 		this.isRunning = false;
 	}
+
+	public void addSeconds(int bonusSec) {
+		// TODO Auto-generated method stub
+		
+	}
 }
  
  
