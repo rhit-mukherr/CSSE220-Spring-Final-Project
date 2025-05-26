@@ -19,25 +19,29 @@ public class HighScoreManager {
 
     public static class Entry implements Comparable<Entry> {
         public final String initials;
-        public final int score;
+        public final int timeLeft;
+		private int level;
 
         /*
          * A single high score entry: initials and numeric score
          */
-        public Entry(String initials, int score) {
+        public Entry(String initials, int level, int timeLeft) {
             this.initials = initials;
-            this.score = score;
+            this.level = level;
+            this.timeLeft = timeLeft;
         }
 
         @Override
         public int compareTo(Entry o) {
-            // sort descending
-            return Integer.compare(o.score, this.score);
+        	if (this.level != o.level) {
+                return Integer.compare(o.level, this.level);
+            }
+            return Integer.compare(o.timeLeft, this.timeLeft);
         }
 
         @Override
         public String toString() {
-            return initials + "," + score;
+        	 return initials + "," + level + "," + timeLeft;
         }
     }
     
@@ -46,23 +50,26 @@ public class HighScoreManager {
      */
     public List<Entry> load() {
         List<Entry> list = new ArrayList<>();
-        File f = new File(FILE_NAME);
-        if (!f.exists()) {
-            return list;
-        }
-        try (BufferedReader reader = new BufferedReader(new FileReader(f))) {
+        File file = new File(FILE_NAME);
+        if (!file.exists()) return list;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 2) {
+                if (parts.length != 3) continue;  
+                try {
                     String ini = parts[0];
-                    int sc = Integer.parseInt(parts[1]);
-                    list.add(new Entry(ini, sc));
+                    int lvl = Integer.parseInt(parts[1]);
+                    int time = Integer.parseInt(parts[2]);
+                    list.add(new Entry(ini, lvl, time));
+                } catch (NumberFormatException ex) {
                 }
             }
-        } catch (IOException | NumberFormatException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+
         Collections.sort(list);
         return list;
     }
@@ -82,9 +89,9 @@ public class HighScoreManager {
     /*
      * Adds a new score (initials + score) and also resorts the list
      */
-    public void add(String initials, int score) {
+    public void add(String initials, int level, int timeLeft) {
         List<Entry> list = load();
-        list.add(new Entry(initials, score));
+        list.add(new Entry(initials, level, timeLeft));
         Collections.sort(list);
         save(list);
     }
