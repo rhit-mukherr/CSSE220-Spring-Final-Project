@@ -59,7 +59,7 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		
 		mazePanel = new MazePanel(maze, player, this);
-		input = new InputHandler(maze, player, sound);
+		input = new InputHandler(maze, player, sound, this);
 		
 		
 		
@@ -129,6 +129,12 @@ public class GameMain extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
+=======
+		
+		
+		
+>>>>>>> branch 'master' of https://github.com/rhit-mukherr/CSSE220-Spring-Final-Project.git
 		Point pos = player.getPosition();
 		PowerUp up = maze.pickupAt(pos.y, pos.x);
 		if(up != null) {
@@ -165,6 +171,25 @@ public class GameMain extends JFrame implements ActionListener{
                 new HighScoreManager().add(initials, level, timeLeft);
             }
 			showEndMessage("We have a winner, Do you want to advance to the next level");
+<<<<<<< HEAD
+=======
+		}
+		
+		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
+			gameTimer.stop();
+			stopwatch.stop();
+			
+			if(difficultyIndex > difficulties.length-1) {
+				JOptionPane.showMessageDialog(this, "You made it!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+				System.exit(0);
+				return;
+			}
+			
+			showEndMessage("Lvevl "+ level + " Cleared! Chanllenge to the Next Level? ");
+		}
+		
+		
+>>>>>>> branch 'master' of https://github.com/rhit-mukherr/CSSE220-Spring-Final-Project.git
 		}
 	}
 	
@@ -222,7 +247,7 @@ public class GameMain extends JFrame implements ActionListener{
 		
 		
 		mazePanel.removeKeyListener(input);
-		InputHandler newInput = new InputHandler(maze, newPlayer, sound);
+		InputHandler newInput = new InputHandler(maze, newPlayer, sound, this);
 		this.input = newInput;
 		mazePanel.addKeyListener(newInput);
 	

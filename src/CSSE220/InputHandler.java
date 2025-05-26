@@ -22,11 +22,13 @@ public class InputHandler implements KeyListener {
 	private Maze maze;
 	private Player player;
 	private SoundManager sound;
+	private  GameMain game;
 
-	public InputHandler(Maze maze, Player player, SoundManager sound) {
+	public InputHandler(Maze maze, Player player, SoundManager sound, GameMain game) {
 		this.maze = maze; 
 		this.player = player;
 		this.sound = sound;
+		this.game = game;
 	}
 
 	@Override
@@ -65,6 +67,7 @@ public class InputHandler implements KeyListener {
 		
 		if(after.equals(before)){
 			sound.playWallHit();
+			game.addTime(-3);
 		} else {
 			
 		}
