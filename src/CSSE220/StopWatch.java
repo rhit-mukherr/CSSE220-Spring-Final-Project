@@ -64,6 +64,17 @@ public class StopWatch {
 	public void addSeconds(int bonusSec) {
 		// TODO Auto-generated method stub
 		
+		long change = bonusSec * 1000L;
+		if(isRunning) {
+			long now = System.currentTimeMillis();
+			elapsedTime += (now - startTime);
+			startTime = now;
+		}
+		elapsedTime -= change;
+		if(elapsedTime <0) {
+			elapsedTime =0;
+		}
+		
 	}
 }
  

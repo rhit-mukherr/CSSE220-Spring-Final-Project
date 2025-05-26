@@ -24,7 +24,7 @@ import java.awt.Dimension;
 
 public class GameMain extends JFrame implements ActionListener{
 
-	private static final double[] difficulties = {0.10, 0.15, 0.20, 0.25};
+	private static final double[] difficulties = {0.10, 0.15, 0.20, 0.25, 0.30};
 	private int difficultyIndex = 0;
 	
 	
@@ -50,7 +50,7 @@ public class GameMain extends JFrame implements ActionListener{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
-		maze = new MazeGenerator(0.3).generate(30,30);
+		maze = new MazeGenerator(difficulties[difficultyIndex]).generate(30,30);
 		player = new Player(new Point(0,0));
 		sound = new SoundManager();
 		
