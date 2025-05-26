@@ -75,10 +75,7 @@ public class MazePanel extends JPanel{
 		
 		
 		//Timer
-		g.setColor(Color.WHITE);
-		g.setFont(new Font("Monospaced", Font.BOLD, 16));
-	
-		g.drawString("Time: " + game.getTimeLeft(), 10, 20);
+		
 		
 		int timeLeft = game.getTimeLeft();
         int level    = game.getLevel();
