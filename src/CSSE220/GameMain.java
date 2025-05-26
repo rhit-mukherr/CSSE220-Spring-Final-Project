@@ -28,8 +28,6 @@ public class GameMain extends JFrame implements ActionListener{
 	private Player player;
 	private InputHandler input;
 	private StopWatch stopwatch;
-		
-    
 	
 	/**
 	 * this constructor sets up the maze, player, panel, 
@@ -95,7 +93,7 @@ public class GameMain extends JFrame implements ActionListener{
 		if(position.x == maze.getCols() -1 && position.y == maze.getRows()-1) {
 			gameTimer.stop();
 			stopwatch.stop();
-			showEndMessage("We have a winner");
+			showEndMessage("We have a winner, Do you want to advance to the next level");
 		}
 		
 			// TODO Auto-generated method stub
